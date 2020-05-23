@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AM HERE</title>
+    <script src="./js/html5-qrcode.min.js"></script>
+  </head>
+  <body>
+    <main class="default-content" aria-label="Content">
+      <div class="wrapper-content">
+        <style>
+          #qr {
+            width: 640px;
+            border: 1px solid silver;
+          }
+          @media (max-width: 600px) {
+            #qr {
+              width: 300px;
+              border: 1px solid silver;
+            }
+          }
+          button:disabled,
+          button[disabled] {
+            opacity: 0.5;
+          }
+          .scan-type-region {
+            display: block;
+            border: 1px solid silver;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+          }
+          .scan-type-region.disabled {
+            opacity: 0.5;
+          }
+          .empty {
+            display: block;
+            width: 100%;
+            height: 20px;
+          }
+          #qr .placeholder {
+            padding: 50px;
+          }
+        </style>
+        <h1>HTML5 QR Code scanner</h1>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12" style="text-align: center;">
+              <div id="qr" style="display: inline-block;">
+                <div class="placeholder">QR Code viewfinder comes here</div>
+              </div>
+              <div id="scannedCodeContainer"></div>
+              <div id="feedback"></div>
+            </div>
+            <div class="col-md-12 scan-type-region camera" id="scanTypeCamera">
+              <div>
+                <input
+                  type="radio"
+                  name="scan-type"
+                  value="camera"
+                  checked=""
+                />
+                <strong>Scan using Camera</strong>&nbsp;&nbsp;
+                <code id="status">Click "Start Scanning"</code>
+                <button id="requestPermission" class="btn btn-success btn-sm">
+                  Request Permission
+                </button>
+              </div>
+              <div>
+                <div>
+                  <div
+                    id="selectCameraContainer"
+                    style="display: inline-block;"
+                  ></div>
+                  <select id="cameraSelection" disabled=""></select>
+                </div>
+                <div>
+                  <button
+                    id="scanButton"
+                    class="btn btn-success btn-sm"
+                    disabled=""
+                  >
+                    start scanning
+                  </button>
+                  <button
+                    id="stopButton"
+                    class="btn btn-warning btn-sm"
+                    disabled=""
+                  >
+                    stop scanning
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-md-12 scan-type-region disabled file"
+              id="scanTypeFile"
+            >
+              <div>
+                <input type="radio" name="scan-type" value="file" />
+                <strong>Scan using file</strong>
+              </div>
+              <div>
+                <input
+                  type="file"
+                  id="qrInputFile"
+                  accept="image/*"
+                  disabled=""
+                />
+                Select Image
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+    <script src="./js/qr-scan.js"></script>
+  </body>
+</html>
